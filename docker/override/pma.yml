@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  pma:
+    image: phpmyadmin
+    ports:
+      - 8081:80
+    environment:
+      - PMA_HOST=db
+      - PMA_USER=root
+      - PMA_PASSWORD=secret
+      - PMA_DB_NAME=laravel
+      - VIRTUAL_HOST=pma.laravel.local
+
