@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  nginx:
+    image: nginx:1.24
+    volumes:
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+    environment:
+      - VIRTUAL_HOST=
+    depends_on:
+      - php
+
+  php:
+    image: php:8.2-fpm
