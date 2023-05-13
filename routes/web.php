@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return app('Arr')->only(config('app'), [
+    $res = app('Arr')::only(config('app'), [
         'name',
         'env',
         'debug',
@@ -12,6 +12,14 @@ Route::get('/', function () {
         'locale',
         'timezone',
     ]);
+
+    $res['versions'] = [
+        'laravel' => app()->version(),
+        'php' => phpversion(),
+        'mysql' => app('DB')::select('select version() as version')[0]->version,
+    ];
+
+    return $res;
 });
 
 # Auth Routes 
