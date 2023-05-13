@@ -13,8 +13,7 @@ services:
       - php
 
   php:
-    build: 
-      dockerfile: ./docker/php/Dockerfile
+    build: ./docker/php
     volumes:
       - .:/var/www/html
 

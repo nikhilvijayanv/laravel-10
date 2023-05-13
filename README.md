@@ -2,7 +2,7 @@
  
 If you want to run in port 80
 ```bash
-COMPOSE_FILE=docker-compose.yml:docker/override/nginx-port-80.yml docker compose up -d
+COMPOSE_FILE=docker-compose.yml:docker/overrides/nginx-port-80.yml docker compose up -d
 ```
 
 Run Composer
@@ -18,4 +18,4 @@ docker compose exec php artisan
 ### Files Quick Access
 [Composer](./composer.json)
 
-[Docker Compose](./docker-compose.yml) / [Overrides](./docker/override/)
+[Docker Compose](./docker-compose.yml) / [Overrides](./docker/overrides/)
