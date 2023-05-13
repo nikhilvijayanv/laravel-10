@@ -2,8 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
+# Home
 Route::get('/', function () {
-    $res = app('Arr')::only(config('app'), [
+    $res = [];
+
+    $res['config.app'] = app('Arr')::only(config('app'), [
         'name',
         'env',
         'debug',
@@ -13,9 +16,15 @@ Route::get('/', function () {
         'timezone',
     ]);
 
-    $res['versions'] = [
+    // new php key
+    $res['php'] = [
+        'version' => phpversion(),
+        'timezone' => date_default_timezone_get(),
+    ];
+
+    $res['other_versions'] = [
         'laravel' => app()->version(),
-        'php' => phpversion(),
+        // 'php' => phpversion(),
         'mysql' => app('DB')::select('select version() as version')[0]->version,
     ];
 
