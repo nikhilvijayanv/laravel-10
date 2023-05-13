@@ -26,6 +26,8 @@ Route::get('/', function () {
         'laravel' => app()->version(),
         // 'php' => phpversion(),
         'mysql' => app('DB')::select('select version() as version')[0]->version,
+        // mysql timezone
+        'mysql_timezone' => app('DB')::select('select @@global.time_zone as timezone')[0]->timezone,
     ];
 
     return $res;
