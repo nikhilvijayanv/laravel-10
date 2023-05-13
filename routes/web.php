@@ -3,7 +3,15 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return 'Laravel ' . app()->version();
+    return app('Arr')->only(config('app'), [
+        'name',
+        'env',
+        'debug',
+        'url',
+        'asset_url',
+        'locale',
+        'timezone',
+    ]);
 });
 
 # Auth Routes 
@@ -16,5 +24,4 @@ if (app()->environment('local')) {
     Route::get('/phpinfo', function () {
         phpinfo();
     });
-
 }
