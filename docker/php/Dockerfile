@@ -1,13 +1,10 @@
 FROM php:8.2.4-fpm
 
-WORKDIR /var/www
-
 COPY --from=composer:2.5.5 /usr/bin/composer /usr/local/bin/composer
 
-RUN ln -s /var/www/artisan /usr/local/bin/artisan
-
-# RUN apt-get update \
-#     && apt-get install -y libzip-dev zip \
-#     && docker-php-ext-install zip \
-#     && docker-php-ext-install pdo_mysql mbstring iconv intl \
-#     && rm -rf /var/lib/apt/lists/*
+RUN ln -s /var/www/artisan /usr/local/bin/artisan \
+    && apt-get update \
+    && apt-get install -y libexif-dev libjpeg-dev libpng-dev libfreetype6-dev \
+    && apt-get install -y default-libmysqlclient-dev libxml2-dev libxslt-dev libssl-dev libzip-dev \
+    && docker-php-ext-install bcmath exif gd pdo_mysql soap sockets zip \
+    && rm -rf /var/lib/apt/lists/*
