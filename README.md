@@ -2,7 +2,7 @@
  
 If you want to run in port 80
 ```bash
-COMPOSE_FILE=docker-compose.yml:docker/overrides/nginx-port-80.yml docker compose up -d
+COMPOSE_FILE=docker-compose.yml:docker/overrides/port-80.yml docker compose up -d
 ```
 
 Run Composer
