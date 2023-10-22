@@ -2,6 +2,7 @@
     "name": "nikhilvijayanv/laravel-10",
     "type": "project",
     "description": "The Laravel Framework.",
+    "version": "1.0.0",
     "keywords": [
         "framework",
         "laravel"
